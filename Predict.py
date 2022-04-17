@@ -10,7 +10,7 @@ from xgboost import XGBRegressor
 
 
 dataset = pd.read_excel("M9.xlsx")
-X = dataset.drop(['Mangrove','City'], axis=1)
+X = dataset.drop(['Year','Mangrove','City'], axis=1)
 y = dataset['Mangrove']
 X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=0.7, random_state=42)
 print("X_train:",X_train)
@@ -18,7 +18,7 @@ print("X_test:",X_test)
 print("y_train:",y_train)
 print("y_test:",y_test)
 dataset2 = pd.read_excel("m9-ac+0.19.xlsx")
-Xpre = dataset2.drop(['Year','City'], axis=1)
+Xpre = dataset2.drop(['City'], axis=1)
 #Metrics
 def rms(test,predict):
     return np.sqrt(np.mean(np.power((test - predict), 2)))
